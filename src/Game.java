@@ -1,6 +1,6 @@
 public class Game {
 
-    private final static int MAX_MATCHES_COUNT = 20;
+    private final int MAX_MATCHES_COUNT = 20;
     private int matchesCount = MAX_MATCHES_COUNT;
     private Computer computer;
     private Player player;
@@ -26,15 +26,17 @@ public class Game {
 
         Game game = new Game();
         while(true) {
-            if (game.computer.canMove()) {
+            if (game.isOver()) {
+                ConsoleHelper.writeMessage("Для компьютера осталась последняя спичка. Компьютер проиграл!");
+                break;
+            } else {
                 game.computer.move();
-            } else {
-                break;
             }
-            if (game.player.canMove()) {
-                game.player.move();
-            } else {
+            if (game.isOver()) {
+                ConsoleHelper.writeMessage("Для игрока осталась последняя спичка. Игрок проиграл!");
                 break;
+            } else {
+                game.player.move();
             }
         }
     }
