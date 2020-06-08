@@ -1,3 +1,8 @@
+/**
+ * The main class of the game.
+ * The Computer plays vs Player.
+ * The ConsoleHelper supports I/O operations of the Player.
+ */
 public class Game {
 
     private final int MAX_MATCHES_COUNT = 20;
